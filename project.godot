@@ -11,7 +11,14 @@ config_version=3
 [application]
 
 config/name="Castle Baloneybeard 2"
+run/main_scene="res://gamedata/main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Setting="*res://gamedata/globals/setting.gd"
+Log="*res://gamedata/globals/logger.gd"
+Config="*res://gamedata/globals/config.gd"
 
 [rendering]
 
