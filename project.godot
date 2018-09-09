@@ -16,9 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Setting="*res://gamedata/globals/setting.gd"
-Log="*res://gamedata/globals/logger.gd"
-Config="*res://gamedata/globals/config.gd"
+Setting="*res://gamedata/config/settings/settings.gd"
 
 [rendering]
 

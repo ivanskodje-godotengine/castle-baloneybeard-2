@@ -11,6 +11,9 @@ enum LOG_LEVEL {
 	ERROR
 }
 
+func _init(script_name):
+	self._script_name = script_name
+
 func info(msg):
 	msg(LOG_LEVEL.INFO, msg)
 
@@ -28,15 +31,20 @@ func error(msg):
 # ---------------------------------
 # "Private"
 #
+var _script_name
 
 func msg(log_level, msg):
-	print(_get_time() + " " + _get_log_level(log_level) + ": " + str(msg))
+	print(_get_time() + _get_log_level(log_level) + _get_script_name() + ": " + str(msg))
 
 func _get_time():
-	return "" + _get_formatted_datetime() + " -"
+	return " " + _get_formatted_datetime() + " -"
 
 func _get_log_level(log_level):
-	return "[" + _get_log_level_string(log_level) + "]"
+	return " [" + _get_log_level_string(log_level) + "]"
+
+func _get_script_name():
+	if(_script_name != null && _script_name != ""):
+		return " (" + _script_name + ")"
 
 func _get_log_level_string(log_level):
 	if(LOG_LEVEL.INFO == log_level):
