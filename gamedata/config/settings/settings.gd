@@ -19,12 +19,13 @@ const SECTION = "Settings"
 
 # VARS
 var config_file = ConfigFile.new()
-var logger = preload("res://gamedata/globals/logger.gd").new("settings.gd")
+var logger = preload("res://gamedata/helper/logger.gd").new("settings.gd")
 
 # CONFIGURATION PROPERTIES
 var screen_width = ConfigMap.new(SECTION, "screen_width", 1280)
 var screen_height = ConfigMap.new(SECTION, "screen_height", 720)
 var music_volume = ConfigMap.new(SECTION, "music_volume", 50)
+
 
 # Whenever we start our game, this will automatically load 
 # (given that it remains as a singleton and is AutoLoaded).
@@ -32,7 +33,7 @@ var music_volume = ConfigMap.new(SECTION, "music_volume", 50)
 # This allows is to make sure our config file (settings.cfg) is valid without having to it within our main scene.
 # This will also fix any issues, and set the default values.
 func _init():
-	logger.debug("Beginning to validate '%s'. " % SETTINGS_PATH)
+	logger.debug("Validating and setting data from '%s'. " % SETTINGS_PATH)
 	config_file.load(SETTINGS_PATH)	
 	var string_builder = StringBuilder.new()
 
@@ -44,10 +45,10 @@ func _init():
 
 
 func validate_screen_width(string_builder):
-	validate_int_range(string_builder, screen_width, 0, 7680)
+	validate_int_range(string_builder, screen_width, 0, OS.get_screen_size().x)
 
 func validate_screen_height(string_builder):
-	validate_int_range(string_builder, screen_height, 0, 4320)
+	validate_int_range(string_builder, screen_height, 0, OS.get_screen_size().y)
 
 func validate_music_volume(string_builder):
 	validate_int_range(string_builder, music_volume, 0, 100)

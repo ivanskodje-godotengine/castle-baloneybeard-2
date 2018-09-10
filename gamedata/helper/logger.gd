@@ -37,25 +37,14 @@ func msg(log_level, msg):
 	print(_get_time() + _get_log_level(log_level) + _get_script_name() + ": " + str(msg))
 
 func _get_time():
-	return " " + _get_formatted_datetime() + " -"
+	return "" + _get_formatted_datetime() + " - "
 
 func _get_log_level(log_level):
-	return " [" + _get_log_level_string(log_level) + "]"
+	return "[" + _get_log_level_string(log_level) + "] "
 
 func _get_script_name():
 	if(_script_name != null && _script_name != ""):
-		return " (" + _script_name + ")"
-
-func _get_log_level_string(log_level):
-	if(LOG_LEVEL.INFO == log_level):
-		return "INFO "
-	if(LOG_LEVEL.DEBUG == log_level):
-		return "DEBUG"
-	if(LOG_LEVEL.WARN == log_level):
-		return "WARN "
-	if(LOG_LEVEL.ERROR == log_level):
-		return "ERROR"
-
+		return "(" + _script_name + ") "
 
 func _get_formatted_datetime():
 	var datetime = OS.get_datetime()
@@ -70,3 +59,15 @@ func _get_formatted_datetime():
 	
 	# Format: yyyy-mm-dd HH:mm:ss
 	return str(year) + "-" + str(month).pad_zeros(2) + "-" + str(day).pad_zeros(2) + " " + str(hours).pad_zeros(2) + ":" + str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
+
+func _get_log_level_string(log_level):
+	if(LOG_LEVEL.INFO == log_level):
+		return "INFO "
+	if(LOG_LEVEL.DEBUG == log_level):
+		return "DEBUG"
+	if(LOG_LEVEL.WARN == log_level):
+		return "WARN "
+	if(LOG_LEVEL.ERROR == log_level):
+		return "ERROR"
+
+
