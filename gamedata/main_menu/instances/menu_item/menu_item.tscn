@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://gamedata/main_menu/instances/menu_item/menu_item.gd" type="Script" id=1]
+[ext_resource path="res://resources/fonts/Early GameBoy.ttf" type="DynamicFontData" id=2]
+
+
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 12
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 2 )
+
+[node name="hbox_container" type="HBoxContainer"]
+
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+alignment = 1
+script/script = ExtResource( 1 )
+color = 0
+text = "Item"
+
+[node name="menu_item" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 56.0
+margin/top = 0.0
+margin/right = 104.0
+margin/bottom = 15.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.137255, 0.164706, 0.0588235, 1 )
+custom_colors/font_color_shadow = Color( 0.0156863, 0.243137, 0, 1 )
+text = "Item"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

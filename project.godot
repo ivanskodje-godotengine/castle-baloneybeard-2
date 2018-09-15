@@ -18,6 +18,11 @@ config/icon="res://icon.png"
 
 Setting="*res://gamedata/config/settings/settings.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
