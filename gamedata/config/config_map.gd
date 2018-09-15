@@ -1,5 +1,3 @@
-# A reusable config map that allow us to easily create new config 
-# value per new field.
 extends Node
 
 var SECTION
