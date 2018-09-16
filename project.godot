@@ -21,7 +21,11 @@ Setting="*res://gamedata/config/settings/settings.gd"
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="keep"
+window/stretch/aspect="keep_height"
+
+[node]
+
+name_casing=2
 
 [rendering]
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background_color.png-90156d369af833a30b0ad6b8e349c6fc.stex"
+path="res://.import/background_hills.png-aa61c1e81444d9705ffb10e447e10eab.stex"
 
 [deps]
 
-source_file="res://gamedata/main_menu/background_color.png"
-dest_files=[ "res://.import/background_color.png-90156d369af833a30b0ad6b8e349c6fc.stex" ]
+source_file="res://gamedata/main_menu/resources/background_hills.png"
+dest_files=[ "res://.import/background_hills.png-aa61c1e81444d9705ffb10e447e10eab.stex" ]
 
 [params]
 

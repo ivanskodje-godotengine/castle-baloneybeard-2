@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gamedata/main_menu/instances/menu_item/menu_item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://gamedata/main_menu/background_color.png" type="Texture" id=2]
-[ext_resource path="res://gamedata/main_menu/background_castles.png" type="Texture" id=3]
-[ext_resource path="res://gamedata/main_menu/logo.png" type="Texture" id=4]
-[ext_resource path="res://gamedata/main_menu/background_hills.png" type="Texture" id=5]
+[ext_resource path="res://gamedata/main_menu/resources/background_color.png" type="Texture" id=2]
+[ext_resource path="res://gamedata/main_menu/resources/background_castles.png" type="Texture" id=3]
+[ext_resource path="res://gamedata/main_menu/resources/logo.png" type="Texture" id=4]
+[ext_resource path="res://gamedata/main_menu/resources/background_hills.png" type="Texture" id=5]
 
 [node name="main_menu" type="Control" index="0"]
 
@@ -20,7 +20,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="container" type="Container" parent="." index="0"]
+[node name="visuals" type="Node" parent="." index="0"]
+
+[node name="container" type="Container" parent="visuals" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -35,7 +37,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="vbox_container" type="VBoxContainer" parent="container" index="0"]
+[node name="vbox_container" type="VBoxContainer" parent="visuals/container" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -49,7 +51,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
 
-[node name="hbox_container" parent="container/vbox_container" index="0" instance=ExtResource( 1 )]
+[node name="hbox_container" parent="visuals/container/vbox_container" index="0" instance=ExtResource( 1 )]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -64,7 +66,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="hbox_container1" parent="container/vbox_container" index="1" instance=ExtResource( 1 )]
+[node name="hbox_container1" parent="visuals/container/vbox_container" index="1" instance=ExtResource( 1 )]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -80,7 +82,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="hbox_container2" parent="container/vbox_container" index="2" instance=ExtResource( 1 )]
+[node name="hbox_container2" parent="visuals/container/vbox_container" index="2" instance=ExtResource( 1 )]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -96,7 +98,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="background" type="TextureRect" parent="." index="1"]
+[node name="background" type="TextureRect" parent="visuals" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -113,7 +115,7 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin" ]
 
-[node name="castle_container" type="CenterContainer" parent="." index="2"]
+[node name="castle_container" type="CenterContainer" parent="visuals" index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -129,7 +131,7 @@ size_flags_vertical = 1
 use_top_left = false
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="container" type="Container" parent="castle_container" index="0"]
+[node name="container" type="Container" parent="visuals/castle_container" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -147,12 +149,12 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="castle" type="Sprite" parent="castle_container/container" index="0"]
+[node name="castle" type="Sprite" parent="visuals/castle_container/container" index="0"]
 
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="logo_container" type="CenterContainer" parent="." index="3"]
+[node name="logo_container" type="CenterContainer" parent="visuals" index="3"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -168,7 +170,7 @@ size_flags_vertical = 1
 use_top_left = false
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="container" type="Container" parent="logo_container" index="0"]
+[node name="container" type="Container" parent="visuals/logo_container" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -186,13 +188,14 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="logo" type="Sprite" parent="logo_container/container" index="0"]
+[node name="logo" type="Sprite" parent="visuals/logo_container/container" index="0"]
 
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="background_hills" type="Container" parent="." index="4"]
+[node name="background_hills" type="Container" parent="visuals" index="4"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.55
 anchor_right = 1.0
@@ -205,7 +208,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="hills" type="TextureRect" parent="background_hills" index="0"]
+[node name="hills" type="TextureRect" parent="visuals/background_hills" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
