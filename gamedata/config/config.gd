@@ -8,11 +8,20 @@ func _init(config_path):
 	self.config_path = config_path
 	config_file.load(config_path)
 
-func get_value(config_map):
+func get_value(section, key):
+	return config_file.get_value(section, key)
+
+func set_value(section, key, value):
+	config_file.set_value(section, key, value)
+
+func get_config_map_value(config_map):
 	return config_file.get_value(config_map.SECTION, config_map.KEY)
 
-func save_value(config_map):
-	    config_file.set_value(config_map.SECTION, config_map.KEY, config_map.VALUE)
+func set_config_map(config_map):
+	config_file.set_value(config_map.SECTION, config_map.KEY, config_map.VALUE)
+
+func save():
+	config_file.save(config_path)
 
 func get_config_path():
 	return config_path

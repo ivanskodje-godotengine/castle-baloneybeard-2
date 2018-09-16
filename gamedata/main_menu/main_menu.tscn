@@ -2,11 +2,11 @@
 
 [ext_resource path="res://gamedata/main_menu/instances/menu_item/menu_item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gamedata/main_menu/resources/background_color.png" type="Texture" id=2]
-[ext_resource path="res://gamedata/main_menu/resources/background_castles.png" type="Texture" id=3]
-[ext_resource path="res://gamedata/main_menu/resources/logo.png" type="Texture" id=4]
-[ext_resource path="res://gamedata/main_menu/resources/background_hills.png" type="Texture" id=5]
+[ext_resource path="res://gamedata/main_menu/resources/logo.png" type="Texture" id=3]
+[ext_resource path="res://gamedata/main_menu/resources/background_hills.png" type="Texture" id=4]
+[ext_resource path="res://gamedata/main_menu/resources/background_castles.png" type="Texture" id=5]
 
-[node name="main_menu" type="Control" index="0"]
+[node name="main_menu" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -20,7 +20,20 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="visuals" type="Node" parent="." index="0"]
+[node name="visuals" type="Control" parent="." index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
 
 [node name="container" type="Container" parent="visuals" index="0"]
 
@@ -115,13 +128,13 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin" ]
 
-[node name="castle_container" type="CenterContainer" parent="visuals" index="2"]
+[node name="center_top_container" type="CenterContainer" parent="visuals" index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
-anchor_top = 0.5
+anchor_top = 0.0
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -131,16 +144,15 @@ size_flags_vertical = 1
 use_top_left = false
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="container" type="Container" parent="visuals/castle_container" index="0"]
+[node name="container" type="Container" parent="visuals/center_top_container" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 512.0
-margin_top = 150.0
-margin_right = 512.0
-margin_bottom = 150.0
+margin_left = 960.0
+margin_right = 960.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -149,57 +161,20 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Margin" ]
 
-[node name="castle" type="Sprite" parent="visuals/castle_container/container" index="0"]
+[node name="logo" type="Sprite" parent="visuals/center_top_container/container" index="0"]
 
+position = Vector2( 0, 100 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="logo_container" type="CenterContainer" parent="visuals" index="3"]
+[node name="background_hills" type="Container" parent="visuals" index="3"]
 
 editor/display_folded = true
 anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.5
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-use_top_left = false
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
-
-[node name="container" type="Container" parent="visuals/logo_container" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 512.0
-margin_top = 150.0
-margin_right = 512.0
-margin_bottom = 150.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Anchor", "Margin" ]
-
-[node name="logo" type="Sprite" parent="visuals/logo_container/container" index="0"]
-
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="background_hills" type="Container" parent="visuals" index="4"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.55
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -200.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -211,18 +186,162 @@ _sections_unfolded = [ "Anchor", "Margin" ]
 [node name="hills" type="TextureRect" parent="visuals/background_hills" index="0"]
 
 anchor_left = 0.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -98.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 2
 _sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="center_bottom_container" type="CenterContainer" parent="visuals" index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
+
+[node name="container" type="Container" parent="visuals/center_bottom_container" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 960.0
+margin_right = 960.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="castle" type="Sprite" parent="visuals/center_bottom_container/container" index="0"]
+
+position = Vector2( 88, -106 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="center_container" type="CenterContainer" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="v_box_container" type="VBoxContainer" parent="center_container" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 915.0
+margin_top = 506.0
+margin_right = 1004.0
+margin_bottom = 574.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="button_singleplayer" type="Button" parent="center_container/v_box_container" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 89.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Singleplayer"
+flat = false
+align = 1
+
+[node name="button_local_coop" type="Button" parent="center_container/v_box_container" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 89.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Local Co-Op"
+flat = false
+align = 1
+
+[node name="button_quit" type="Button" parent="center_container/v_box_container" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 48.0
+margin_right = 89.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit"
+flat = false
+align = 1
 
 
