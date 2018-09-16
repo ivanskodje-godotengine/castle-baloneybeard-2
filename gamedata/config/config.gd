@@ -15,7 +15,8 @@ func set_value(section, key, value):
 	config_file.set_value(section, key, value)
 
 func get_config_map_value(config_map):
-	return config_file.get_value(config_map.SECTION, config_map.KEY)
+	config_map.VALUE = config_file.get_value(config_map.SECTION, config_map.KEY) # This part makes sure to update the given config_map with the value loaded from config
+	return config_map.VALUE
 
 func set_config_map(config_map):
 	config_file.set_value(config_map.SECTION, config_map.KEY, config_map.VALUE)
