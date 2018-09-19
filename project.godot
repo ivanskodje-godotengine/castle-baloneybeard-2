@@ -27,3 +27,7 @@ window/stretch/aspect="keep_height"
 [node]
 
 name_casing=2
+
+[rendering]
+
+quality/shadows/filter_mode=0
